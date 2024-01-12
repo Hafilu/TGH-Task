@@ -1,0 +1,69 @@
+.comment-section {
+  margin-top: 20px;
+}
+
+.comment-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.comment-item {
+  margin-bottom: 15px;
+  padding: 0px 12px;
+}
+
+.comment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-actions {
+  margin-left: 10px;
+}
+
+.comment-form {
+  margin-top: 10px;
+  border-top: 1px solid rgb(183, 180, 180);
+
+  padding: 10px 12px 10px 10px;
+}
+
+.comment-name {
+  color: #888;
+}
+
+.no-comments-text {
+  color: #888;
+}
+
+.profile-photo {
+  width: 40px;
+  height: 40px;
+}
+
+.comment-input {
+  flex: 1;
+  margin-right: 10px;
+  background-color: transparent !important;
+  border: none !important;
+  color: #fff !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.comment-input::placeholder {
+  color: #888;
+}
+
+.post-button {
+  background-color: transparent !important;
+  color: #007bff;
+  border: none;
+  cursor: pointer;
+}

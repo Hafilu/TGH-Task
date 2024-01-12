@@ -1,0 +1,54 @@
+.heading-with-settings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settings-icon {
+  margin-bottom: 20px;
+  color: rgb(138, 137, 137);
+}
+
+.trending-topics {
+  padding: 15px;
+  margin-left: 20px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.blue-link {
+  text-decoration: none;
+  color: rgba(26, 88, 182, 0.952);
+}
+
+.trending-topics h5 {
+  margin-bottom: 20px;
+}
+
+.trending-items ul {
+  list-style: none;
+  padding: 0;
+}
+
+.trending-items li {
+  margin-bottom: 20px;
+}
+
+.trending-items a {
+  text-decoration: none;
+}
+
+.tag-line {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.tag-line a {
+  color: white;
+}
+
+.tag-line span {
+  color: rgb(138, 137, 137);
+  font-size: smaller;
+}

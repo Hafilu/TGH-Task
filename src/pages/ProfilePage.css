@@ -1,0 +1,30 @@
+.profile-details {
+    padding: 15px;
+    margin-left: 20px;
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .profile-avatar img {
+    width: 60px; 
+    height: 60px;  
+    border-radius: 50%;  
+    margin-bottom: 20px;
+  }
+  
+  .profile-details h5 {
+    margin: 0;
+  }
+  
+   
+  
+  .tagline{
+    margin: 20px 0px;
+  }
+  
+  .likes{
+   color: rgb(138, 137, 137);
+  }
+  
+  
+  

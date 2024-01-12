@@ -1,0 +1,40 @@
+.grid-row {
+  display: flex;
+  border-bottom: 1px solid rgb(138, 137, 137);
+}
+
+.grid-column {
+  border-right: 1px solid rgb(183, 180, 180);
+  border-left: 1px solid rgb(183, 180, 180);
+  padding-top: 15px;
+  text-align: center;
+}
+
+.headline {
+  padding: 7px;
+  text-align: center;
+  color: #fff;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.icon-container svg {
+  margin: 0 5px;
+}
+
+.heart-clicked {
+  color: red;
+}
+
+.trending-topics-container-mobile {
+  position: absolute;
+  top: 57px;
+  right: 0;
+  background-color: #403e3e;
+  z-index: 1;
+  width: 50%;
+}

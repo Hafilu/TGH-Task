@@ -1,0 +1,21 @@
+.quote-det-col{
+    border-bottom: 1px solid rgb(183, 180, 180); 
+    width: 100%;
+}
+
+.quote-detail-row{
+    width: 100%;
+    margin-left: 0%;
+}
+
+.comments{
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+.comments-headline{
+    margin-left: 15px;
+    margin-top: 5px;
+}

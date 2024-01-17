@@ -6,7 +6,6 @@ import QuotesPage from "./pages/QuotePage";
 import TrendingTopics from "./pages/TagPage";
 import ProfilePage from "./pages/ProfilePage";
 import TopBar from "./pages/TopBar";
- 
 
 const App = () => {
   const [isMobileScreen, setIsMobileScreen] = useState(false);
@@ -18,7 +17,7 @@ const App = () => {
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize();  
+    handleResize();
 
     // Cleanup the event listener
     return () => {
@@ -28,7 +27,6 @@ const App = () => {
 
   return (
     <div className="app">
-      {/* Content */}
       <Container fluid>
         <TopBar />
 
@@ -40,7 +38,6 @@ const App = () => {
             </Col>
           </Row>
         ) : (
-          // Old UI for other screens
           <Row className="vertical-lines">
             <Col xs={3} className="p-0">
               <ProfilePage />

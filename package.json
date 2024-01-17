@@ -18,6 +18,7 @@
     "react-redux": "^9.0.4",
     "react-router-dom": "^6.21.2",
     "react-scripts": "5.0.1",
+    "react-share": "^5.0.3",
     "react-web-share": "^2.0.2",
     "redux": "^5.0.1",
     "redux-thunk": "^2.4.2",

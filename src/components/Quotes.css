@@ -1,35 +1,35 @@
- 
-  
- 
-  .quote-container {
-    display: flex;
-    flex-direction: column;
-    padding: 20px 0px;
-    cursor: pointer;
-  }
-  
-  .profile-info {
-    display: flex;
-    align-items: flex-start;
-     
-  }
-  
-  .profile-info img {
-    width: 40px;  
-    height: 40px;
-    border-radius: 50%;  
-    margin-right: 10px;
-  }
-  
-  .quote-text {
-    margin-bottom: 10px;
-  }
-  
-  .icons-container {
-    display: flex;
-    justify-content: flex-start;
-  }
-  
-  .liked-icon{
-    color: red;
-  }
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0px;
+  cursor: pointer;
+}
+
+.profile-info {
+  display: flex;
+  align-items: flex-start;
+}
+
+.profile-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.quote-text {
+  margin-bottom: 10px;
+}
+
+.icons-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.liked-icon {
+  color: red;
+}
+
+.social-icons-tooltip {
+  padding: 10px 0 0 10px;
+}

@@ -4,4 +4,15 @@
     border-bottom: 1px solid rgb(183, 180, 180);  
     width: 100%;
   }
+
+  .quote-comp-col{
+    border-bottom: 1px solid rgb(183, 180, 180);  
+    width: 100%;
+  }
   
+  .tag-headline{
+    display: flex;
+    align-items: center;
+    padding-top: 15px;
+    cursor: pointer;
+  }

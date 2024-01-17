@@ -1,60 +1,53 @@
-import {
-  businessData,
-  changeData,
-  characterData,
-  competitionData,
-  courageData,
-  educationData,
-  quoteData,
-} from "../dummy data/quoteData";
+
+import axios from "axios";
 
 export const setHeartIconClicked = (clicked) => ({
   type: 'SET_HEART_ICON_CLICKED',
   payload: clicked,
 });
 
-export const setLikedQuotes = (likedQuotes) => ({
-  type: 'SET_LIKED_QUOTES',
-  payload: likedQuotes,
+export const setSelectedQuote = (quote) => ({
+  type: 'SET_SELECTED_QUOTE',
+  payload: quote,
+});
+export const setSelectedTag = (tag) => ({
+  type: 'SET_SELECTED_TAG',
+  payload: tag,
 });
 
-export const toggleLike = (quoteId) => ({
+ 
+export const toggleLike = (quote) => ({
   type: 'TOGGLE_LIKE',
-  payload: quoteId,
+  payload: quote,
 });
 
-// Modify the fetchQuotes action to use the appropriate dummy data based on the selected tag
+ 
+export const initializeLikedQuotes = () => {
+  const storedLikedQuotes = localStorage.getItem('likedQuotes');
+  const initialLikedQuotes = storedLikedQuotes ? JSON.parse(storedLikedQuotes) : [];
+  console.log("from local strg",initialLikedQuotes);
+  return {
+    type: 'INITIALIZE_LIKED_QUOTES',
+    payload: initialLikedQuotes,
+  };
+};
+
+
 export const fetchQuotes = (selectedTag) => async (dispatch) => {
   try {
-     
+    // Define the API endpoint and parameters
+    const apiUrl = 'https://api.quotable.io/quotes';
+    const params = selectedTag ? { tags: selectedTag } : {};
 
-    // Use the dummy data based on the selected tag
-    let data;
-    switch (selectedTag) {
-      case "business":
-        data = businessData;
-        break;
-      case "character":
-        data = characterData;
-        break;
-      case "change":
-        data = changeData;
-        break;
-      case "education":
-        data = educationData;
-        break;
-      case "competition":
-        data = competitionData;
-        break;
-      case "courage":
-        data = courageData;
-        break;
-      default:
-        data = quoteData;
-    }
+    // Fetch quotes from the quotable API
+    const response = await axios.get(apiUrl, { params });
 
-    dispatch({ type: "SET_QUOTES", payload: data.results });
+    // Extract the quotes from the response
+    const quotes = response.data.results;
+
+    // Dispatch the quotes to the store
+    dispatch({ type: 'SET_QUOTES', payload: quotes });
   } catch (error) {
-    console.error("Error fetching quotes:", error.message);
+    console.error('Error fetching quotes:', error.message);
   }
 };

@@ -16,10 +16,10 @@ const QuoteDetail = ({ quote, onClick }) => {
   const dispatch = useDispatch();
   const likedQuotes = useSelector((state) => state.likedQuotes);
 
-  const isLiked = likedQuotes.includes(quote._id);
+  const isLiked = likedQuotes.includes(quote);
 
   const handleLikeClick = () => {
-    dispatch(toggleLike(quote._id));
+    dispatch(toggleLike(quote));
   };
   return (
     <Container fluid className="p-0">

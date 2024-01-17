@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import "./TopBar.css";
-import { setHeartIconClicked } from "../redux/action";
+import { setHeartIconClicked, setSelectedQuote } from "../redux/action";
 import TrendingTopics from "./TagPage";
 
 const TopBar = () => {
@@ -20,10 +20,12 @@ const TopBar = () => {
 
   const handleHeartIconClick = () => {
     dispatch(setHeartIconClicked(true));
+    dispatch(setSelectedQuote(null));
   };
 
   const handleHomeIconClick = () => {
     dispatch(setHeartIconClicked(false));
+    dispatch(setSelectedQuote(null));
   };
 
   const handleEqualsClick = () => {

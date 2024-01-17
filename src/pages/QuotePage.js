@@ -1,54 +1,90 @@
-import React, { useState, useEffect } from "react";
+import React, {  useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import QuoteComponent from "../components/Quotes";
-import { fetchQuotes } from "../redux/action";
+import { fetchQuotes , initializeLikedQuotes, setSelectedQuote, setSelectedTag } from "../redux/action";
 import "./QuotePage.css";
 import QuoteDetail from "./QuoteDetails";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
 
 const QuotesPage = () => {
   const dispatch = useDispatch();
+  const selectedQuote =useSelector((state)=> state.selectedQuote)
+  const selectedTag =useSelector((state)=> state.selectedTag)
+  const likedQuotes =useSelector((state)=> state.likedQuotes)
+  
   const quotes = useSelector((state) => {
     return state.heartIconClicked
-      ? state.likedQuotes.map((likedId) =>
-          state.quotes.find((quote) => quote._id === likedId)
-        )
+      ? state.likedQuotes 
       : state.quotes;
   });
-  const [selectedQuote, setSelectedQuote] = useState(null);
+   
+
+  const handleTagClick = ()=>{
+    
+    dispatch(fetchQuotes());
+    setTimeout(() => {
+      dispatch(setSelectedTag(null));
+    }, 500);
+    
+  }
+   
 
   useEffect(() => {
     dispatch(fetchQuotes());
+    dispatch(initializeLikedQuotes());
+    console.log(likedQuotes);
   }, [dispatch]);
+
+  
+  
+
+   
 
   return (
     <Container fluid>
       {quotes.length === 0 && !selectedQuote ? (
         <Row className="quote-row">
           <Col xs={6} className="quote-col">
-            <p className="pt-3">No liked quotes available.</p>
+            <p className="pt-3">No quotes available.</p>
           </Col>
         </Row>
-      ) : selectedQuote ? (
+      ) : selectedQuote  ? (
         <Row className="quote-row">
           <Col xs={6} className="quote-col p-0">
             <QuoteDetail
               quote={selectedQuote}
-              onClick={() => setSelectedQuote(null)}
+              onClick={() => dispatch(setSelectedQuote(null))}
             />
           </Col>
         </Row>
-      ) : (
-        quotes.map((quote, index) => (
-          <Row key={index} className="quote-row">
-            <Col xs={6} className="quote-col">
+      ) : ( 
+
+        <Row className="quote-row">
+        <Col xs={6} className="quote-col">
+        {selectedTag && (
+          <div className="tag-headline" onClick={handleTagClick}>
+            <FontAwesomeIcon icon={faArrowLeft} />
+            <h5 className="comments-headline">{selectedTag.name}</h5>
+          </div>
+        )}
+        {quotes.map((quote, index) => (
+         <Row key={
+          index
+         }  className="quote-row">
+         <Col xs={6} className="quote-comp-col">
               <QuoteComponent
                 quote={quote}
-                onClick={() => setSelectedQuote(quote)}
+                onClick={() => dispatch(setSelectedQuote(quote))}
               />
             </Col>
           </Row>
-        ))
+        ))}
+       </Col>
+          </Row>
+      
       )}
     </Container>
   );

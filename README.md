@@ -1,4 +1,4 @@
-# Project Name
+# x-clone
 
 This is a basic x-clone usig react js and bootstrap, done as a part of TGH Tech - Frontend Developer Role Task   
 
